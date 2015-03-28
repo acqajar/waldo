@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_id: 
+  user_category_id: 
+  uc_id: 1
+  match_id: 1
+
+two:
+  match_id: 
+  user_category_id: 
+  uc_id: 1
+  match_id: 1

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Match:</strong>
+  <%= @user_category_match.match %>
+</p>
+
+<p>
+  <strong>User category:</strong>
+  <%= @user_category_match.user_category %>
+</p>
+
+<p>
+  <strong>Uc:</strong>
+  <%= @user_category_match.uc_id %>
+</p>
+
+<p>
+  <strong>Match:</strong>
+  <%= @user_category_match.match_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_category_match_path(@user_category_match) %> |
+<%= link_to 'Back', user_category_matches_path %>
