@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+
   devise_for :users
   resources :matches
 
@@ -7,8 +9,6 @@ Rails.application.routes.draw do
   resources :user_category_matches
 
   resources :user_categories
-
-  resources :events
 
   resources :categories
 

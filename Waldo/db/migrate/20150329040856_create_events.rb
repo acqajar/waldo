@@ -3,10 +3,10 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name
       t.text :desc
-      t.references :category, index: true
+      t.references :user_category_match, index: true
 
       t.timestamps null: false
     end
-    add_foreign_key :events, :categories
+    add_foreign_key :events, :user_category_matches
   end
 end

@@ -1,0 +1,15 @@
+<% @user.user_services.each do |s| %>
+<% # If there's for whatever reason an orphaned user_service here, let's kill it
+ if s.service_id == nil
+   # Couldn't find the service for this one
+   s.destroy
+  else
+%>
+ <p>
+  <strong> <%= s.service.name %></strong>
+   
+   <%= s.description %> 
+   <%= s.price %>
+ </p>
+ <% end %>
+<% end %>

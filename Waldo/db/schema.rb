@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329003134) do
+ActiveRecord::Schema.define(version: 20150329040856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20150329003134) do
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "desc"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_category_match_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
+  add_index "events", ["user_category_match_id"], name: "index_events_on_user_category_match_id", using: :btree
 
   create_table "matches", force: :cascade do |t|
     t.integer  "user1_id"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20150329003134) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "events", "categories"
+  add_foreign_key "events", "user_category_matches"
   add_foreign_key "matches", "users"
   add_foreign_key "photos", "users"
   add_foreign_key "user_categories", "categories"

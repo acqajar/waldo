@@ -3,9 +3,9 @@
 one:
   name: MyString
   desc: MyText
-  category_id: 
+  user_category_match_id: 
 
 two:
   name: MyString
   desc: MyText
-  category_id: 
+  user_category_match_id: 

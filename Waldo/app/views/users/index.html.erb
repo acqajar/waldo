@@ -17,6 +17,26 @@
     </tr>
   </thead>
 
+
+
+
+
+
+<h3> Nearby Users </h3>
+<ul>
+  <!-- define distance from user (could set it here), use user input for radius willing to travel -->
+<% @user.nearbys(@user.radius).each do |user| %>
+<li><%== user.name %> <%= link_to user.address, user %> (<%= user.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+
+
+
+
+
+
+
   <tbody>
     <% @users.each do |user| %>
       <tr>
