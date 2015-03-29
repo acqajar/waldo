@@ -18,7 +18,7 @@ class PhotosControllerTest < ActionController::TestCase
 
   test "should create photo" do
     assert_difference('Photo.count') do
-      post :create, photo: { user: @photo.user }
+      post :create, photo: { url_image: @photo.url_image, user_id: @photo.user_id }
     end
 
     assert_redirected_to photo_path(assigns(:photo))
@@ -35,7 +35,7 @@ class PhotosControllerTest < ActionController::TestCase
   end
 
   test "should update photo" do
-    patch :update, id: @photo, photo: { user: @photo.user }
+    patch :update, id: @photo, photo: { url_image: @photo.url_image, user_id: @photo.user_id }
     assert_redirected_to photo_path(assigns(:photo))
   end
 

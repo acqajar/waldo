@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :user_category_matches
-
   resources :matches
 
   resources :photos
+
+  resources :user_category_matches
 
   resources :user_categories
 

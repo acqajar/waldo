@@ -1,7 +1,8 @@
 class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
-      t.integeruser2_id :user1_id
+      t.integer :user1_id
+      t.integer :user2_id
       t.integer :ucm_id
       t.references :user, index: true
 
