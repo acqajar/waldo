@@ -25,5 +25,7 @@ geocoded_by :address
           WHERE user_id = up2.user_id))) * 2) AS score"	
 		end
 
-		
+		def index
+      @user = Users.all 
+    end
 end
