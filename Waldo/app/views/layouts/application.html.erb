@@ -13,9 +13,21 @@
 <%= link_to "Sign-up", new_user_registration_path %>
 <%= link_to "Sign-in", user_session_path %>
 <% else %>
-<%= link_to "Log-out", destroy_user_session_path, :method => :delete %>  
+<%= link_to "Log-out", destroy_user_session_path, :method => :delete %> |
 <%= link_to "Profile", user_path(@user) %>
-<% end %>
+<% end %> 
+
+<!-- #######################################################################################
+############################################################################################
+################ IF ON Profile page, then dont show PROFILE option #########################
+############################################################################################
+############################################################################################
+-->
+<!-- < if link_to "Profile", user_path(@user) == link_to "Profile", user_path(@user)%>
+< return %>
+< else %>
+<= link_to "Profile", user_path(@user) %>
+< end %> -->
 
 
 </body>
