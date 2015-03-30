@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Find People', users_path(@user) %>
+<%= link_to 'Sexy Matches', matches_path(@user) %>
+
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>

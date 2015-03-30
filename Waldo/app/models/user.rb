@@ -22,7 +22,8 @@ geocoded_by :address
             INNER JOIN place_categories AS pc ON c.id = pc.category_id
             INNER JOIN user_places AS up ON up.place_id = pc.place_id
             INNER JOIN users AS u ON u.id = up.user_id
-          WHERE user_id = up2.user_id))) * 2) AS score"
-	
-end
+          WHERE user_id = up2.user_id))) * 2) AS score"	
+		end
+
+		
 end

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :events
 
-  devise_for :users
+  devise_for :users do
+  get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+end
+
   resources :matches
 
   resources :photos
