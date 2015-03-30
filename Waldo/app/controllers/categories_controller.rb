@@ -7,10 +7,14 @@ class CategoriesController < ApplicationController
   def index
     @response = HTTParty.get("https://www.eventbriteapi.com/v3/categories?token=6W6MK2IRTGDVSXQM3MNY")
     i=0
+    @names =[]
       while i < @response["categories"].length
-        puts display = @response["categories"][i]["name"]
+         display = @response["categories"][i]["name"]
+         @names << display
+         @names
         i+=1
       end
+      @names.to_s
   end
 
   # GET /categories/1
