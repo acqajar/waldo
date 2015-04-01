@@ -5,16 +5,19 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   ############################################################################################################################################## Iterate through Categories? #################################################################################################################################################################################################################################################
   def index
+    @user = current_user
+    @user.user_categories.build
     @response = HTTParty.get("https://www.eventbriteapi.com/v3/categories?token=6W6MK2IRTGDVSXQM3MNY")
     i=0
     @names =[]
-      while i < @response["categories"].length
-         display = @response["categories"][i]["name"]
-         @names << display
-         @names
-        i+=1
-      end
-      @names.to_s
+    while i < @response["categories"].length
+       display = @response["categories"][i]["name"]
+       Category.find_or_create_by(name: display)
+       @names << display
+       @names
+      i+=1
+    end
+    @categories = Category.all 
   end
 
   # GET /categories/1

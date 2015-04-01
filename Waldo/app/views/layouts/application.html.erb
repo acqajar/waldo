@@ -14,8 +14,12 @@
 <%= link_to "Sign-in", user_session_path %>
 <% else %>
 <%= link_to "Log-out", destroy_user_session_path, :method => :delete %> |
-<%= link_to "Profile", user_path(current_user) %>
-<% end %> 
+<%= link_to "Check your Categories", categories_path()  %> |
+<%= link_to "Profile", user_path(current_user) %> |
+<% end %>
+
+
+
 
 <!-- #######################################################################################
 ############################################################################################
@@ -23,11 +27,13 @@
 ############################################################################################
 ############################################################################################
 -->
-<!-- < if link_to "Profile", user_path(@user) == link_to "Profile", user_path(@user)%>
-< return %>
+
+<!-- < if current_page?(controller: 'user' action: 'show') %> 
+<return %>
 < else %>
-<= link_to "Profile", user_path(@user) %>
-< end %> -->
+<= link_to "Profile", user_path(current_user) %> |
+< end %>  -->
+
 
 
 </body>

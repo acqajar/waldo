@@ -2,6 +2,7 @@
 
 <h1>Listing Categories</h1>
 
+<%= form_for @user do |f| %>
 <table>
   <thead>
     <tr>
@@ -9,18 +10,30 @@
     </tr>
   </thead>
   
-
   <tbody>
       <tr>
         <td>
-          <% @names.each do |name| %>
-            <%= name %> <br>
+        <%= f.fields_for :user_categories do |builder| %>
+            <%= builder.object.category.name if builder.object.category !=nil %> <%#= c.user_categories.count %>
+            <%# if c.user_categories.count > 0 %>
+                  <%= builder.select :rating, 
+                    [["Pick", nil], 
+                     ["1", 1], 
+                     ["2",2], 
+                     ["3", 3]], 
+                    {} %>
+                  <%= builder.text_field :rating %>
+                <br>
+
           <% end %>
         </td>
         
      
   </tbody>
 </table>
+<br>
+<%= f.submit %>
+<% end %>
 
 <br>
 
