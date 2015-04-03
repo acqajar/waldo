@@ -52,6 +52,11 @@
 </p>
 
 
+<% @user.photos.each do |p| %>
+  <%= image_tag p.image.url %>
+<% end %>
+<br>
+<br>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %> |

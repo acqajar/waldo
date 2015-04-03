@@ -24,16 +24,14 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
-
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        format.json { render :show, status: :created, location: @photo }
-      else
-        format.html { render :new }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+    # Find our user that we should attach to
+    #@photo = current_user.photos.new(photo_params)
+    #or the standard create:
+    @photo = Photo.create(photo_params)
+    if @photo.save
+      redirect_to photos_path
+    else
+      render 'new'
     end
   end
 
@@ -69,6 +67,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:user_id, :url_image)
+      params.require(:photo).permit(:user_id, :url_image, :photos_attributes => [:image])
     end
 end

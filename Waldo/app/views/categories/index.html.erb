@@ -11,24 +11,24 @@
   </thead>
   
   <tbody>
+      <%= f.fields_for :user_categories do |c| %>
       <tr>
         <td>
-        <%= f.fields_for :user_categories do |builder| %>
-            <%= builder.object.category.name if builder.object.category !=nil %> <%#= c.user_categories.count %>
-            <%# if c.user_categories.count > 0 %>
-                  <%= builder.select :rating, 
-                    [["Pick", nil], 
-                     ["1", 1], 
-                     ["2",2], 
-                     ["3", 3]], 
-                    {} %>
-                  <%= builder.text_field :rating %>
-                <br>
-
-          <% end %>
+          <!-- <= builder.object.inspect %> -->
         </td>
-        
-     
+        <td> <%#= c.user_categories.count %>
+          <%# if c.user_categories.count > 0 %>
+                 <%= c.name %> <%= c.select :rating, 
+                  [["Pick", nil], 
+                   ["1", 1], 
+                   ["2",2], 
+                   ["3", 3]], 
+                  {} %>
+                
+            <br>
+        </td>
+      </tr>
+      <% end %>
   </tbody>
 </table>
 <br>

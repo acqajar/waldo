@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
        @names
       i+=1
     end
-    @categories = Category.all 
+    @categories = Category.all
   end
 
   # GET /categories/1

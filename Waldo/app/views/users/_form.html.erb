@@ -1,4 +1,7 @@
-<%= form_for(@user) do |f| %>
+<%= nested_form_for @user, :html =>
+{:multipart =>
+true} do |f| %>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -39,14 +42,14 @@
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
   </div> -->
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
 
-<b>Choose Avatar<b> <br><%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :avatar %>
-<% end %>
+  <%= f.fields_for :photos do |builder| %>  
+    <% if builder.object.new_record? %>
+      <%= builder.file_field(:image) %>
+    <% end %>
+  <% end %>
+
+  <p><%= f.link_to_add "Add photo", :photos %></p>
 
 <br>
 <br> 
@@ -55,4 +58,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-<br>

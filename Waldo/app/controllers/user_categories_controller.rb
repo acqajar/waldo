@@ -69,6 +69,6 @@ class UserCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_category_params
-      params.require(:user_category).permit(:user_id, :category_id, :user_id, :category_id, :rating)
+      params.require(:user_category).permit(:user_id, :category_id, :rating)
     end
 end
